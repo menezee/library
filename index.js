@@ -2,9 +2,24 @@ const http = require('http');
 const port = 3000;
 
 const httpServer = http.createServer((req, res) => {
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ message: `${req.method} received on ${req.url}` }));
+    if (!validate(req.headers)) res.end('unauthorized');
+
+    if (req.url === '/books') {
+        switch (req.method) {
+            case 'GET': res.end('GET BOOKS'); break;
+            case 'POST': res.end('POST BOOKS'); break;
+            default: res.end('not supported')
+        }
+    } else if (req.url === '/users') {
+        switch (req.method) {
+            case 'GET': res.end('GET USERS'); break;
+            case 'POST': res.end('POST USERS'); break;
+            default: res.end('not supported')
+        }
+    }
 });
+
+const validate = headers => headers.authorization === 'authorized';
 
 httpServer.listen(port, () => {
     console.log(`listening on ${port}`)

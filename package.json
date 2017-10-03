@@ -1,0 +1,20 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "Tutorial project.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/menezee/library.git"
+  },
+  "author": "Erich",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/menezee/library/issues"
+  },
+  "homepage": "https://github.com/menezee/library#readme"
+}

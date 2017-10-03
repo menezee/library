@@ -4,9 +4,9 @@
   "description": "Tutorial project.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js --exec babel-node --presets es2015,stage-2",
+    "start": "nodemon src/index.js --exec babel-node",
     "test": "test",
-    "build": "babel src/index.js -d dist --presets es2015,stage-2",
+    "build": "babel src/index.js -d dist",
     "serve": "node dist/index.js"
   },
   "repository": {

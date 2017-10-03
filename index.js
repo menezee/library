@@ -1,4 +1,4 @@
-const http = require('http');
+import http from 'http'
 const port = 3000;
 
 const httpServer = http.createServer((req, res) => {
@@ -24,4 +24,3 @@ const validate = headers => headers.authorization === 'authorized';
 httpServer.listen(port, () => {
     console.log(`listening on ${port}`)
 });
-

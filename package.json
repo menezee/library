@@ -4,8 +4,10 @@
   "description": "Tutorial project.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js --exec babel-node --presets es2015,stage-2",
-    "test": "test"
+    "start": "nodemon src/index.js --exec babel-node --presets es2015,stage-2",
+    "test": "test",
+    "build": "babel src/index.js -d dist --presets es2015,stage-2",
+    "serve": "node dist/index.js"
   },
   "repository": {
     "type": "git",

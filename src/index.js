@@ -1,10 +1,13 @@
-const express = require('express'); // const app = const express = require('express')();
+import express from 'express';
+import openDatabaseConnection from './database'
+import { booksRouter, usersRouter } from './routes'
 const app = express();
 const port = 3000;
 
-app.get('/books', (req, res) => res.send('GET in /books'));
-app.get('/users',  (req, res) => res.send('GET in /users'));
-app.post('/users', (req, res) => res.send('POST in /users'));
+app.use('/users', usersRouter);
+app.use('/books', booksRouter);
+
+openDatabaseConnection(() => console.log(`successfully connected to mongo`));
 
 app.listen(3000, () => {
     console.log(`listening on ${port}`)

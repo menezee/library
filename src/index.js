@@ -1,14 +1,21 @@
 import express from 'express';
-import openDatabaseConnection from './database'
+import bodyParser from 'body-parser';
+import databaseConnection from './database'
 import { booksRouter, usersRouter } from './routes'
 const app = express();
 const port = 3000;
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app.use('/users', usersRouter);
 app.use('/books', booksRouter);
 
-openDatabaseConnection(() => console.log(`successfully connected to mongo`));
-
-app.listen(3000, () => {
-    console.log(`listening on ${port}`)
+databaseConnection.on('error', console.error.bind(console, 'connection error:'));
+databaseConnection.once('open', function() {
+    app.listen(3000, () => {
+        console.log(`listening on ${port}`);
+    });
 });
+
+

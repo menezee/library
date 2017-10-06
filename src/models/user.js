@@ -6,4 +6,4 @@ const userSchema = mongoose.Schema({
     borrowedBooks: Array
 });
 
-export const userModel = mongoose.model('User', userSchema);
+export const User = mongoose.model('User', userSchema);

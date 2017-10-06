@@ -33,3 +33,9 @@ booksRouter.post('/', function (req, res) {
         }
     });
 });
+
+// fake route to display view
+/*
+booksRouter.get('/show', (req, res) => {
+    res.render('index', { title: 'BOOKS' });
+});*/
